@@ -9,7 +9,6 @@
 3. Projects
 
   - Writing a Data Scientist Blog Post [Due September 14]
-
   - Optimizing GitHub Profile [DONE]
 
 # Module 3: Sofware Engineering
