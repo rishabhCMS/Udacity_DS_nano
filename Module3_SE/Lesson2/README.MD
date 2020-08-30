@@ -23,4 +23,6 @@
     
 ### C. Writing Clean code
 
-    
+![alt text](https://github.com/rishabhCMS/Udacity_DS_nano/blob/master/Module3_SE/Lesson2/images/1.png)
+
+![alt text](https://github.com/rishabhCMS/Udacity_DS_nano/blob/master/Module3_SE/Lesson2/images/2.png)
