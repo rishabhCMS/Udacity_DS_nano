@@ -88,6 +88,6 @@ dummy_cols_df = pd.get_dummies(dummy_var_df['col1'], dummy_na=True)
 
   Results are the findings from our wrangling and modeling. They are the answers you found to each of the questions.
  
-## Deploy Model
+## 6. Deploy Model
 
   Deploying can occur by moving your approach into production or by using your results to persuade others within a company to act on the results. Communication is such an important part of the role of a data scientist.
