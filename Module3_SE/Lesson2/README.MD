@@ -26,3 +26,12 @@
 ![alt text](https://github.com/rishabhCMS/Udacity_DS_nano/blob/master/Module3_SE/Lesson2/images/1.png)
 
 ![alt text](https://github.com/rishabhCMS/Udacity_DS_nano/blob/master/Module3_SE/Lesson2/images/2.png)
+
+### D. Writing Modular code
+
+    - DRY! Dont Repeat Yourself
+    - Abstract out logic into function for better readability
+    - avoid having unnecessary actions in functions and keep them focussed (Ex: printing something inside the fucnt)
+    - Aribitrary variabe names can be useful in some functions
+    - Don't use more than three arguments per function (avoid )
+    
