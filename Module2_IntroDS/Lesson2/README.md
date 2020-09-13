@@ -210,3 +210,30 @@ Push changes up to remote repository
 [Versioning in DS](https://shuaiw.github.io/2017/07/30/versioning-data-science.html)
 
 [Version Control Production ML models](https://blog.algorithmia.com/how-to-version-control-your-production-machine-learning-models/)
+
+
+# B. Software Engineering Part II
+
+#### Testing
+
+befor the code can be deployed it needs to be tested
+
+#### [Unit tests](https://www.fullstackpython.com/integration-testing.html)
+
+#### Unit testing tool
+
+1. pytest
+    
+        To install pytest, run pip install -U pytest in your terminal. You can see more information on getting started here.
+
+        Create a test file starting with test_
+        Define unit test functions that start with test_ inside the test file
+        Enter pytest into your terminal in the directory of your test file and it will detect these tests for you!
+        test_ is the default - if you wish to change this, you can learn how to in this pytest configuration
+
+        In the test output, periods represent successful unit tests and F's represent failed unit tests. Since all you see is what test functions failed, it's wise to have only one assert statement per test. Otherwise, you wouldn't know exactly how many tests failed, and which tests failed.
+
+        Your tests won't be stopped by failed assert statements, but it will stop if you have syntax errors.
+        
+
+
