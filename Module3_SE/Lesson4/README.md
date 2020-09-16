@@ -100,3 +100,8 @@ class Shirt():
         """
         return self.price * (1 - percentage)
  ````
+## Gaussian Class
+
+## Magic Methods
+
+## Inheritence
