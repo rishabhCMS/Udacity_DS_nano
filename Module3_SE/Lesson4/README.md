@@ -413,6 +413,38 @@ Student.details()
 ````
 2. [class attributes vs instance attributes0](https://www.python-course.eu/python3_class_and_instance_attributes.php)
 
+        class and instance attributes are stored in different dicts, so changing an instance attribute will not change the class attribute
+        
+````python
+class A():
+
+    def __init__(self, x)
+    self.x = "rishabh"
+````
+
+````python
+obj = A()
+obj.x = "Tishabh"
+````
+
+````python
+obj.x 
+Tishabh
+A.x
+Rishabh
+````
+
 3. [multiple inheritance, mixins](https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556)
 
+
+
 4. [Python decorators ](https://realpython.com/primer-on-python-decorators/)
+
+## Organizing into modules
+
+        a module is a python file that contains classes, functions and/or global variables
+        
+        a package is a collection of modules placed into a directory
+        
+## Making a python package
+
