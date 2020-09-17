@@ -350,3 +350,12 @@ class Gaussian(Distribution):
         
         return "mean {}, standard deviation {}".format(self.mean, self.stdev)
 ````
+## Advance OOP Topics
+
+1. [Class methods, instance methods and inheritence methods](https://realpython.com/instance-class-and-static-methods-demystified/)
+
+2. [class attributes vs instance attributes0](https://www.python-course.eu/python3_class_and_instance_attributes.php)
+
+3. [multiple inheritance, mixins](https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556)
+
+4. [Python decorators ](https://realpython.com/primer-on-python-decorators/)
