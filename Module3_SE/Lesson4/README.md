@@ -354,6 +354,63 @@ class Gaussian(Distribution):
 
 1. [Class methods, instance methods and inheritence methods](https://realpython.com/instance-class-and-static-methods-demystified/)
 
+        Instance Method: as the name suggests instance method is method that can be accessed only by an instance of a class
+````python
+class Student():
+
+    def __init__(self, name, age, standard):
+        self.name = name
+        self.age = age
+        self.standard = standard
+    #instance method
+    def details(self):
+        return("name = {}, age = {}, standard = {}".format(self.name, self.age, self.standard))   
+````
+        for ex: 
+````python
+declartion and getting access to 
+obj = Student()
+obj.name = "rishabh"
+obj.age = 99
+obj.standard = 56
+
+# details function can only be accessed by creating an instance of the student class
+obj.details()
+````
+        
+        Class method: a mothod is called a "class" method if it takes a "cls arg. Class methods don’t need a class instance. They can’t access the instance (self) but they have access to the class itself via cls.
+
+````python
+class Student():
+
+    def __init__(self, name, age, standard):
+        self.name = name
+        self.age = age
+        self.standard = standard
+    #class method
+    def details(cls):
+        return("name = {}, age = {}, standard = {}".format(self.name, self.age, self.standard))   
+````       
+````python
+Student.details()
+````
+        Static methods don’t have access to cls or self. They work like regular functions but belong to the class’s namespace.
+        
+````python
+class Student():
+
+    def __init__(self, name, age, standard):
+        self.name = name
+        self.age = age
+        self.standard = standard
+    #class method
+    def details(cls):
+        return("name = {}, age = {}, standard = {}".format(self.name, self.age, self.standard))   
+````   
+````python
+#not allowed
+Student.details()
+````
 2. [class attributes vs instance attributes0](https://www.python-course.eu/python3_class_and_instance_attributes.php)
 
 3. [multiple inheritance, mixins](https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556)
