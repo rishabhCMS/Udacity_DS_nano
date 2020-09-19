@@ -448,3 +448,75 @@ Rishabh
         
 ## Making a python package
 
+        1. a package needs an `__init__.py` file
+        
+        2. the code inside the `__init_.py` gets executed everytime the package is imported
+        
+        3. to see where the package is installed 
+        
+        import package_name
+        package_name.__file__
+        
+## Virtual Environments
+
+**Python Environment**: a python evironment is an isolated python environment different from your computer env. This gives you independence in-terms of what packages you wantt o install in that env and delete that env later.
+
+**There are two different python env managers**:
+
+        1. Conda: It can act as a Package Manager ( install python packages ) or environment manager (create isolated environments)
+        
+```console
+conda create --name env_name
+source activate env_name
+# now you can install any package here
+cond install numpy
+```
+
+        2. pip: it's a package manager, it can only manage python packages, while conda is language agnostic( any language in addition to python)
+        
+        3. venv: is an environment manager comes pre-installed with python 3
+        
+```console
+python3 -m venv environmentname
+source environmentname/bin/activate
+pip install numpy
+```
+
+**how to decide between Conda and (pip + venv)?**
+
+if you create and env using **Conda** and then activate it and then use **pip** to install packages. **pip** will install packages in your golbal env, rather than the local. So, what you want to do is to crate the **conda** env and install **pip** simulatneously.
+
+```console
+conda create --name environmentname pip
+```
+
+While **pip** and **venv** work as expected.
+
+```console
+conda update python
+```
+
+**Steps to create a package for pip installing**
+
+        step 1: move your modularized code to a folder "distribution"
+        
+        step 2: create a "setup.py" file in the folder "distribution"
+        
+        Step 3: content of "setup.py"
+        
+                from setuptools import setup
+````python
+setup(name='distributions',
+      version='0.1',
+      description='Gaussian distributions',
+      packages=['distributions'],
+      zip_safe=False)
+````
+
+        step 4: create a __init__.py file inside the "distribution" folder where you have your modularized code
+        
+````python
+from .Gaussiandistribution import Gaussian
+````
+
+        step 5 pip install .
