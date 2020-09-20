@@ -51,3 +51,60 @@ example html code
 
 [W3C Validator](https://validator.w3.org/#validate_by_input)
 
+
+## ids and classes
+
+```html
+<div id="top">
+    <p class="first_paragraph">First paragraph of the section</p>
+    <p class="second_paragraph">Second paragraph of the section</p>
+</div>
+
+<div id="bottom">
+    <p class="first_paragraph">First paragraph of the section</p>
+    <p class="second_paragraph">Second paragraph of the section</p>
+</div>
+```
+
+## CSS
+ 
+Cascading style Sheets, we write CSS to style each element of the HTML
+
+There are two ways to implement CSS
+
+    1. inline CSS : you add style rules inside the tags
+    2. CSS wrtten in a style sheet
+    
+We'll be using the [bootstrap](https://getbootstrap.com/) library for wrting CSS
+
+inline CSS
+```html
+<p style="font-size:20px;">This is a paragraph</p>
+```
+
+Style Sheet
+```html
+...
+<head>
+   <style>
+       p {font-size: 20px;}
+   </style>
+</head>
+```
+
+Or CSS can g ina separate sheet
+```html
+<head>
+    <link rel="stylesheet" type"text/css" href="style.css">
+</head>
+```
+
+[CSS rules](https://www.w3schools.com/css/default.asp)
+
+The general syntax is that you:
+
+    - select the html element, id, and/or class of interest
+    - specify what you want to change about the element
+    - specify a value, followed by a semi-colon
+    
+
