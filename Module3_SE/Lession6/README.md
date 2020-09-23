@@ -121,3 +121,37 @@ Bootstrap is one of the easier front-end frameworks to work with. Bootstrap elim
 [bootstrap example](https://youtu.be/KsrqjguHWUI)
 
 ## Javascript
+
+
+## the backend
+
+## Flask
+
+it is wrtten in python
+
+**Steps involved**
+
+    - setting up the backend
+    - linking the backend and the frontend together
+    - deploying the app to a server so that the app is available from a web address
+    
+**What is [Flask](https://flask.palletsprojects.com/en/1.1.x/)?**
+
+abstraction is basically hiding the un-necessary details from the programer
+for ex: if I want to make a cup of tea, all I need is tea bag, a mug, and hot water. I don't want to make/know about how to make a mug from clay, I don't want to know how the electric kettle was built.
+
+Similarly Flask abstracts the code for recieving requests, interpreting the requests and sending out correct files.
+
+if I want to access website
+    
+      1. I go to my browser, type in the http request
+      2. the browser sends out the request to the server
+      3. Flask is a software at the server, which recieves the request, interprets it and sends out the relevant info
+      4. the browser recieves the http message from the server and displays it
+      
+**Why work with Flask?**
+
+    1. it's wrtten in python
+    2. it is easy to use for making a smal web app
+    3. bc Flask is written in python you can use flask with any python lib
+    
