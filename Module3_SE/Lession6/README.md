@@ -155,3 +155,4 @@ if I want to access website
     2. it is easy to use for making a smal web app
     3. bc Flask is written in python you can use flask with any python lib
     
+**Flask Basics**
