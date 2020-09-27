@@ -250,3 +250,206 @@ If you'd like to know more details about decorators and how `@app.route()` works
 
 Since Flask is written in python you can use it with varois python libraries
 
+## Flask + Plotly + pandas 
+
+[vid 1](https://youtu.be/xg7P8MnItdI)
+
+    Step 1: Wrangle the data using Pandas.
+    Step 2: Visulize the data using plotly
+    Step 3: Show the visulaization on the front-end
+    
+### Part I:Passing data-set from back-end-> front-end
+
+The purpose of this section is to give you an idea of how the final web app works in terms of passing information back and forth between the back end and front end. The web template you'll be using at the end of the lesson will already provide the code for sharing information between the back and front ends. Your task will be to wrangle data and set up the plotly visualizations using Python. But it's important to get a sense for how the web app works.
+
+In the video above, the data set was sent from the back end to the front end. This was accomplished by including a variable in the render_template() function like so:
+
+````python
+data = data_wrangling()
+
+@app.route('/')
+@app.route('/index')
+def index():
+   return render_template('index.html', data_set = data)
+````
+What this code does is to first load the data using the data_wrangling function from wrangling.py. This data gets stored in a variable called data.
+
+In render_template, that data is sent to the front end via a variable called data_set. Now the data is available to the front_end in the data_set variable.
+
+In the index.html file, you can access the data_set variable using the following syntax:
+
+`{{ data_set }}`
+You can do this because Flask comes with a template engine called Jinja. Jinja also allows you to put control flow statements in your html using the following syntax:
+
+````html
+{% for tuple in data_set %}
+  <p>{{tuple}}</p>
+{% end_for %}
+````
+The logic is:
+
+    1. Wrangle data in a file (aka Python module). In this case, the file is called wrangling.py. The wrangling.py has a function that returns the clean data.
+
+    2. Execute this function in routes.py to get the data in routes.py
+    
+    3. Pass the data to the front-end (index.html file) using the render_template method.
+    
+    4. Inside of index.html, you can access the data variable with the squiggly bracket syntax `{{ }}`
+    
+### Part II: Create Plotly viz in back-end and send it to Front-end
+[vid2](https://youtu.be/yx-DRzMsblI)
+
+In the second part, a Plotly visualization was set up on the back-end inside the routes.py file using Plotly's Python library. The Python plotly code is a dictionary of dictionaries. The Python dictionary is then converted to a JSON format and sent to the front-end via the render_templates method.
+
+Simultaneously a list of ids are created for the plots. This information is also sent to the front-end using the render_template() method.
+
+On the front-end, the ids and visualization code (JSON code) is then used with the Plotly javascript library to render the plots.
+
+In summary:
+
+    - Python is used to set up a Plotly visualization
+    
+    - An id is created associated with each visualization
+    
+    - The Python Plotly code is converted to JSON
+    
+    - The ids and JSON are sent to the front end (index.html).
+    
+    - The front end then uses the ids, JSON, and JavaScript Plotly library to render the plots.
+    
+### Part III: Making complex visualizations in Plotly
+
+[vid3](https://youtu.be/e8owK5zk-g8)
+
+### Part VI: add more visualizations in the back end code and then render those visualizations on the front end
+
+[vid4](https://youtu.be/4IF2G9Fehb4)
+
+Beyond a CSV file
+Besides storing data in a local csv file (or text, json, etc.), you could also store the data in a database such as a SQL database.
+
+The database could be local to your website meaning that the database file is stored on the same server as your website; alternatively, the database could be stored somewhere else like on a separate database server or with a cloud service like Amazon AWS.
+
+Using a database with your web app goes beyond the scope of this introduction to web development, here are a few resources for using databases with Flask apps:
+
+[Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database) - Using Databases with Flask
+[SQL Alchemy](http://docs.sqlalchemy.org/en/latest/)- a Python toolkit for working with SQL
+[Flask SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - a Flask library for using SQLAlchemy with Flask
+
+## [Deployment](https://youtu.be/YPfNzpnm_Rk)
+
+Other Services Besides Heroku
+Heroku is just one option of many for deploying a web app, and Heroku is actually owned by Salesforce.com.
+
+The big internet companies offer similar services like Amazon's Lightsail, Microsoft's Azure, Google Cloud, and IBM Cloud (formerly IBM Bluemix). However, these services tend to require more configuration. Most of these also come with either a free tier or a limited free tier that expires after a certain amount of time.
+
+Instructions Deploying from the Classroom
+Here is the code used in the screencast to get the web app running:
+
+First, a new folder was created for the web app and all of the web app folders and files were moved into the folder:
+````console
+mkdir web_app
+mv -t web_app data worldbankapp wrangling_scripts worldbank.py
+````
+The next step was to create a virtual environment and then activate the environment:
+````console
+conda update python
+python3 -m venv worldbankvenv
+source worldbankenv/bin/activate
+````
+Then, pip install the Python libraries needed for the web app
+
+`pip install flask pandas plotly gunicorn`
+The next step was to install the heroku command line tools:
+````console
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+https://devcenter.heroku.com/articles/heroku-cli#standalone-installation
+heroku —-version
+````
+And then log into heroku with the following command
+
+heroku login
+Heroku asks for your account email address and password, which you type into the terminal and press enter.
+
+The next steps involved some housekeeping:
+
+`remove app.run()` from `worldbank.py`
+type `cd web_app` into the Terminal so that you are inside the folder with your web app code.
+Then create a `proc` file, which tells Heroku what to do when starting your web app:
+
+`touch Procfile`
+Then open the Procfile and type:
+
+`web gunicorn worldbank:app`
+Next, create a requirements file, which lists all of the Python library that your app depends on:
+
+`pip freeze > requirements.txt`
+And initialize a git repository and make a commit:
+````console
+git init
+git add .
+git commit -m ‘first commit’
+````
+Now, create a heroku app:
+
+`heroku create my-app-name`
+where `my-app-name` is a `unique name` that nobody else on Heroku has already used.
+
+The heroku create command should create a git repository on Heroku and a web address for accessing your web app. You can check that a remote repository was added to your git repository with the following terminal command:
+
+`git remote -v`
+Next, you need to push your git repository to the remote heroku repository with this command:
+
+`git push heroku master`
+Now, you can type your web app's address in the browser to see the results.
+
+## Virtual Environments vs. Anaconda
+Virtual environments and Anaconda serve a very similar purpose. Anaconda is a distribution of Python (and the analytics language R) specifically for data science. Anaconda comes installed with a package and environment manager called conda. You can create separate environments using conda. However, these environments automatically come with Python packages meant for data science.
+
+Virtual environments, on the other hand, come with the Python language but do not pre-install other packages.
+
+The classroom workspace has many other Python libraries pre-installed including an installation of Anaconda.
+
+When installing a web app to a server, you should only include the packages that are necessary for running your web app. Otherwise you'd be installing Python packages that you don't need.
+
+To ensure that your app only installs necessary packages, you should create a virtual Python environment. A virtual Python environment is a separate Python installation on your computer that you can easily remove and won't interfere with your main Python installation.
+
+There is more than one Python package that can set up virtual environments. In the past, you had to install these packages yourself. With Python 3.6, there is a virtual environment package that comes with the Python installation. The packaged is called venv
+
+However, there is a bug with anaconda's 3.6 Python installation on a Linux system. So in order to use venv in the workspace classroom, you first need to update the Python installation as shown in the instructions above.
+
+Creating a Virtual Environment in the Classroom
+Open a terminal window in a workspace and type:
+
+conda update python
+When asked for confirmation, type y and hit enter. Your Python installation should update.
+
+Next, make sure you are in the folder where you want to build your web app. In the classroom, the workspace folder is fine. But on your personal computer, you'll want to make a new folder. For example:
+
+mkdir myapp
+will create a new folder called myapp and cd myapp will change your current directory so that you are inside the myapp folder.
+
+Then to create a virtual environment type:
+
+python3 -m venv name
+where name can be anything you want. You'll see a new folder appear in the workspace with your environment name.
+
+Finally, to activate the virtual environment. Type:
+
+source name/bin/activate
+You can tell that your environment is activated because the name will show up in parenthesis on the left side of the terminal.
+
+Creating a Virtual Environment Locally on Your Computer
+You can develop your app using the classroom workspace. If you decide to develop your app locally on your computer, you should set up a virtual environment there as well. Different versions of Python have different ways of setting up virtual environments. Assuming you are using Python 3.6 and are on a linux or macOS system, then you should be able to set up a virtual environment on your local machine just by typing:
+
+python3 -m venv name
+and then to activate:
+
+source name/bin/activate
+On Windows, the command is;
+
+c:\>c:\Python35\python -m venv c:\path\to\myenv
+and to activate:
+
+C:\> <venv>\Scripts\activate.bat
+For more information, read through this link.
