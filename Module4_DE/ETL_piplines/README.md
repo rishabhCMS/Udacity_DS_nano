@@ -21,3 +21,13 @@ Big Data links
 
 ## ETL Pipeline
 
+** to find the encoding of a file**
+```` python
+# import the chardet library
+import chardet 
+
+# use the detect method to find the encoding
+# 'rb' means read in the file as binary
+with open("mystery.csv", 'rb') as file:
+    print(chardet.detect(file.read()))
+````
