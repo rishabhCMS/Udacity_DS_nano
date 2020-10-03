@@ -31,3 +31,22 @@ import chardet
 with open("mystery.csv", 'rb') as file:
     print(chardet.detect(file.read()))
 ````
+
+## Missing data
+
+Gradient Boosting Decision trees can handle missing values
+
+| data                                           |
+|------------------------------------------------|
+| 'Other Industry; Trade and Services?$ab' |
+| 'Other Industry; Trade and Services?ceg' |
+
+
+## Outlier detection
+
+resources
+
+http://scikit-learn.org/stable/modules/outlier_detection.html
+
+https://towardsdatascience.com/a-brief-overview-of-outlier-detection-techniques-1e0b2c19e561
+
