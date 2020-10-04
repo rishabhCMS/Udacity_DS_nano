@@ -89,3 +89,16 @@ plt.ylabel('GDP')
 for i, txt in enumerate(text):
     ax.annotate(txt, (x[i],y[i]))
     ````
+
+## Load
+
+https://db-engines.com/en/ranking
+
+https://redis.io/
+
+http://cassandra.apache.org/
+
+http://hbase.apache.org/
+
+https://www.mongodb.com/
+
