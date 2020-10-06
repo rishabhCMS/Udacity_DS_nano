@@ -22,3 +22,26 @@ This process isn't always linear and may require additional steps.
 - **Converting** words into their dictionary forms, using stemming and lemmatization
 
 ### Cleaning:
+
+````python
+#fetching the wen-page using the requests library
+
+# import statements
+import requests
+from bs4 import BeautifulSoup
+
+# fetch web page
+r = requests.get('https://www.udacity.com/courses/all')
+
+soup = BeautifulSoup(r.text, 'lxml')
+
+courses = []
+for summary in summaries:
+    # append name and school of each summary to courses list
+    name=summary.find('h2').get_text()
+    school=summary.find('h3').get_text()
+    courses.append((name, school))
+#     print(school)
+    
+````
+
