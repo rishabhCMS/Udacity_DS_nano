@@ -45,3 +45,34 @@ for summary in summaries:
     
 ````
 
+### Normalization
+
+````python
+# Convert to lowercase
+text = text.lower()
+
+import re
+text = re.sub(r'[^a-zA-Z0-9]',' ', text)
+print(text)
+````
+
+### Tokenization
+
+````python
+import nltk
+
+#word tokenize
+notk.word_tokenize(text)
+
+#sentence tokenize
+nltk.sent_tokenize(text
+````
+
+### Stop Words removal
+
+````python
+from nltk.corpus import stopwords
+
+print(stopwords.words('english")
+````
+
