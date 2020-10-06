@@ -62,7 +62,7 @@ print(text)
 import nltk
 
 #word tokenize
-notk.word_tokenize(text)
+nltk.word_tokenize(text)
 
 #sentence tokenize
 nltk.sent_tokenize(text
@@ -76,3 +76,35 @@ from nltk.corpus import stopwords
 print(stopwords.words('english")
 ````
 
+### Part of Speech Tagging (POS tagging)
+
+````python
+from nltk import pos_tag
+
+sentence_tokenize = nltk.work_tokenize(text)
+
+post_tag(sentence_tokenize)
+````
+
+### Named Entity Recognition (NER)
+````python
+from nltk import ne_chunk
+````
+
+### Stemming and Lemmatization
+
+````python 
+
+from nltk.stemmer.porter import PoretrStemmer
+
+from nltk.stem.wordnet import WordNetLemmatizer
+
+https://youtu.be/zKYEvRd2XmI
+````
+## Stage II: Feature Extraction
+
+**How do you represent text for ML purposes. below are a few techniques to do that**
+
+### Bag of words
+
+### TF-IDF (termfrequncy and Inverse Document frequency)
