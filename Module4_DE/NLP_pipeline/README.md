@@ -108,3 +108,6 @@ https://youtu.be/zKYEvRd2XmI
 ### Bag of words
 
 ### TF-IDF (termfrequncy and Inverse Document frequency)
+
+
+## Stage III: Modelling
